@@ -1,0 +1,29 @@
+.searchBtn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.searchIcon {
+}
+
+.homeBtn {
+  font-family: 'Roboto';
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.moviePage {
+  margin-top: 15px;
+}
+
+.searchForm {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.inputForm {
+  border-radius: 5px;
+}

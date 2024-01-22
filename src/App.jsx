@@ -1,16 +1,24 @@
 import { HomePage } from './components/HomePage/HomePage';
-import { Movie } from 'components/Movie/Movie';
-import { getRatedMovies } from './services/api';
+import { MoviePage } from 'components/Movie/MoviePage';
+import {
+  getMovieInfo,
+  getRatedMovies,
+  getMovieCredits,
+  getMovieReviews,
+} from './services/api';
 import { getSerchedMovies } from './services/api';
 import { useEffect, useState } from 'react';
 import css from './components/HomePage/HomePage.module.css';
 
 export const App = () => {
   const [rated, setRated] = useState(null);
-  const [chosen, setChosen] = useState(null);
-  const [tabPanel, setTabPanel] = useState();
+  const [tabPanel, setTabPanel] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [searched, setSearched] = useState(null);
+  const [movieData, setMovieData] = useState(null);
+  const [castData, setCastData] = useState(null);
+  const [reviewData, setReviewData] = useState(null);
+  const [addLink, setAddLink] = useState(null);
 
   useEffect(() => {
     const fetchRated = async () => {
@@ -42,19 +50,67 @@ export const App = () => {
   }, [searchQuery]);
 
   useEffect(() => {
-    console.log(searched);
-  }, [searched]);
+    console.log(addLink);
+  }, [addLink]);
 
-  const handleChosenMovie = movie => {
-    setChosen(prevChosen => {
-      console.log(movie);
-      return { movie };
-    });
+  const onClickMovie = movie => {
+    const fetchMovieInfo = async () => {
+      try {
+        const info = await getMovieInfo(movie.id);
+        setMovieData(info);
+      } catch (error) {
+        console.error('Error fetching movie info: ', error);
+      }
+    };
+    fetchMovieInfo();
+    setTabPanel('movie');
+  };
+
+  const onClickCast = id => {
+    setAddLink('cast');
+    if (castData) {
+      return;
+    }
+    const fetchMovieCast = async () => {
+      try {
+        const data = await getMovieCredits(id);
+        setCastData(data.cast);
+      } catch (error) {
+        console.error('Error fetching movie cast: ', error);
+      }
+    };
+    fetchMovieCast();
+  };
+
+  const onClickReview = id => {
+    setAddLink('review');
+    if (reviewData) {
+      return;
+    }
+    const fetchMovieReview = async () => {
+      try {
+        const data = await getMovieReviews(id);
+        if (data.results.length) {
+          setReviewData(data.results);
+        } else {
+          setReviewData([
+            { content: "We don't have any reviews for this movie", id: 1 },
+          ]);
+        }
+      } catch (error) {
+        console.error('Error fetching movie cast: ', error);
+      }
+    };
+    fetchMovieReview();
   };
 
   const handleGoHome = () => {
     setTabPanel('home');
-    console.log('clicked');
+    setMovieData('');
+    setSearched('');
+    setAddLink('');
+    setCastData(null);
+    setReviewData(null);
   };
 
   const handleSearch = formData => {
@@ -67,7 +123,7 @@ export const App = () => {
         <button
           className={`${css.tab}
           ${tabPanel === 'home' ? css.active : ''} `}
-          onClick={() => setTabPanel('home')}
+          onClick={() => handleGoHome()}
         >
           Home
         </button>
@@ -80,14 +136,21 @@ export const App = () => {
         </button>
       </div>
       {tabPanel === 'home' && (
-        <HomePage
-          rated={rated}
-          chosen={chosen}
-          handleChosenMovie={handleChosenMovie}
-        />
+        <HomePage rated={rated} onClickMovie={onClickMovie} />
       )}
       {tabPanel === 'movie' && (
-        <Movie handleSearch={handleSearch} handleGoHome={handleGoHome} />
+        <MoviePage
+          handleSearch={handleSearch}
+          handleGoHome={handleGoHome}
+          movie={movieData}
+          moviesList={searched}
+          castData={castData}
+          reviewData={reviewData}
+          addLink={addLink}
+          onClickMovie={onClickMovie}
+          onClickCast={onClickCast}
+          onClickReview={onClickReview}
+        />
       )}
     </>
   );

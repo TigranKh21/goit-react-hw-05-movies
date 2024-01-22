@@ -12,7 +12,8 @@
 .tab {
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 18px;
+  font-family: 'Fugaz One', sans-serif;
+  font-size: 24px;
   font-weight: 700;
   color: black;
   border-bottom: none;
@@ -22,8 +23,4 @@
 }
 .active {
   color: red;
-}
-
-.movieLink {
-  cursor: pointer;
 }

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-05-movies/static/css/main.ba9733f7.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.396a2e8e.js",
+    "main.css": "/goit-react-hw-05-movies/static/css/main.c7cfc921.css",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.4771bacf.js",
     "static/media/RobotoBold.svg": "/goit-react-hw-05-movies/static/media/RobotoBold.ff48b445fc18fc714b28.svg",
     "static/media/RobotoRegular.svg": "/goit-react-hw-05-movies/static/media/RobotoRegular.8679f233caa77c561800.svg",
     "static/media/RobotoRegular.eot": "/goit-react-hw-05-movies/static/media/RobotoRegular.414f6fa6a305918482c6.eot",
@@ -12,12 +12,13 @@
     "static/media/RobotoRegular.woff": "/goit-react-hw-05-movies/static/media/RobotoRegular.c17b7c6f563884bb1e3b.woff",
     "static/media/RobotoBold.woff2": "/goit-react-hw-05-movies/static/media/RobotoBold.6756f889091596cd9911.woff2",
     "static/media/RobotoRegular.woff2": "/goit-react-hw-05-movies/static/media/RobotoRegular.7e6ed467acf79dfb5760.woff2",
+    "static/media/FugazOne-Regular.ttf": "/goit-react-hw-05-movies/static/media/FugazOne-Regular.b409ae0da16dcaf2d59b.ttf",
     "index.html": "/goit-react-hw-05-movies/index.html",
-    "main.ba9733f7.css.map": "/goit-react-hw-05-movies/static/css/main.ba9733f7.css.map",
-    "main.396a2e8e.js.map": "/goit-react-hw-05-movies/static/js/main.396a2e8e.js.map"
+    "main.c7cfc921.css.map": "/goit-react-hw-05-movies/static/css/main.c7cfc921.css.map",
+    "main.4771bacf.js.map": "/goit-react-hw-05-movies/static/js/main.4771bacf.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba9733f7.css",
-    "static/js/main.396a2e8e.js"
+    "static/css/main.c7cfc921.css",
+    "static/js/main.4771bacf.js"
   ]
 }

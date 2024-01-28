@@ -21,6 +21,38 @@
   align-items: center;
 }
 
+.searchSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .inputForm {
   border-radius: 5px;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+.searchIcon {
+  color: white;
+  scale: 1.5;
+}
+
+.movieLink {
+  cursor: pointer;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 8px;
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  transition: 0.5s;
+}
+
+.movieLink:hover {
+  transform: translateX(30px) scale(1.2);
 }

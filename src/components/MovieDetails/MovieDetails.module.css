@@ -1,0 +1,159 @@
+.movieIdWrapper {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.addLink {
+  font-family: 'Roboto';
+  font-size: 16px;
+  border: none;
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
+}
+
+.addSection {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.homeBtnText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  width: 150px;
+  border: none;
+  outline: none;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 1.2em;
+  list-style: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  text-align: center;
+  text-shadow: none;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+}
+
+.homeBtn {
+  display: flex;
+  text-decoration: none;
+  font-family: 'Fugaz One';
+}
+
+.movieText {
+  margin-left: 15px;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.movieLargeImg {
+  height: 450px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 30px 2px rgb(208, 210, 230);
+}
+.movieIdWrapper {
+  background-color: black;
+  color: beige;
+}
+
+.userScores,
+.overviewText {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+}
+.genresList {
+  display: flex;
+  gap: 10px;
+}
+.genresItem {
+  list-style: none;
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+}
+
+.addInfoCast {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 50px 20px;
+  justify-content: space-between;
+}
+.addInfoReview {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+}
+
+.reviewAuthor {
+  width: 500px;
+}
+
+.addInfoItemCast {
+  display: flex;
+  list-style: none;
+}
+
+/* .addInfoItemCast p:first-child {
+  margin-top: 10px;
+  margin-bottom: 0;
+} */
+
+.cast {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: center;
+  max-width: 138px;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  color: white;
+  box-shadow: 1px 1px 20px 1px rgb(208, 210, 230);
+}
+
+.cast p {
+  padding-top: 10px;
+}
+
+.castText {
+  margin-bottom: 5px;
+}
+
+img {
+  background-image: url('../../img/NO_IMAGE.png');
+  align-items: start;
+  border-radius: 10px 10px 0px 0px;
+  max-width: 100%;
+  display: block;
+}
+
+.noReviews {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* .noImg {
+  width: 138px;
+  height: 175px;
+  background-color: white;
+}
+
+.noImg::before {
+  position: absolute;
+  font-family: 'Philosopher', sans-serif;
+  left: 0;
+  top: 0;
+}
+ */

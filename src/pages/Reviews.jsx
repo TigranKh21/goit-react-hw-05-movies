@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
-import { Loader } from 'components/Loader/Loader';
 
+import { Loader } from 'components/Loader/Loader';
 import { getMovieReviews } from 'services/api';
 
 import css from '../components/MovieDetails/MovieDetails.module.css';
 
-const Reviews = ({ id }) => {
+const Reviews = () => {
+  const { movieId } = useParams();
   const [reviews, setReviews] = useState(null);
   const [noReviews, setNoReviews] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +20,7 @@ const Reviews = ({ id }) => {
         return;
       }
       try {
-        const data = await getMovieReviews(id);
+        const data = await getMovieReviews(movieId);
         if (data.results.length) {
           setReviews(data.results);
         } else {
@@ -32,7 +34,7 @@ const Reviews = ({ id }) => {
     };
 
     fetchingReviews();
-  }, [id, reviews]);
+  }, [movieId, reviews]);
 
   return (
     isLoading && <Loader />,

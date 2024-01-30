@@ -1,12 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
-import css from './MoviePage.module.css';
+import css from './MoviesList.module.css';
 
-export const SearchedMovieList = ({ searched }) => {
+export const TrendMovieList = ({ moviesList }) => {
   const location = useLocation();
   return (
     <section>
       <ul>
-        {searched.map(movie => (
+        {moviesList.map(movie => (
           <li className={css.movieLink} key={movie.id}>
             <Link state={{ from: location }} to={`/movies/${movie.id}`}>
               {movie.title}

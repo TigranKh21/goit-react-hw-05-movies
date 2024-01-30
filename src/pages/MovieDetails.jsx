@@ -1,21 +1,19 @@
 import {
   Link,
   NavLink,
-  Route,
-  Routes,
+  Outlet,
   useLocation,
   useParams,
 } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
-import { getMovieInfo } from 'services/api';
-import { default as Cast } from './Cast';
-import { default as Reviews } from './Reviews';
+import { Suspense, useEffect, useRef, useState } from 'react';
 
 import { BiArrowBack } from 'react-icons/bi';
+import { toast } from 'react-toastify';
+
 import { Loader } from 'components/Loader/Loader';
+import { getMovieInfo } from 'services/api';
 
 import css from '../components/MovieDetails/MovieDetails.module.css';
-import { toast } from 'react-toastify';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -95,14 +93,9 @@ const MovieDetails = () => {
             </NavLink>
           </section>
           <div>
-            <Routes>
-              <Route path="cast" element={<Cast id={movieId} />} />
-            </Routes>
-          </div>
-          <div>
-            <Routes>
-              <Route path="reviews" element={<Reviews id={movieId} />} />
-            </Routes>
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
           </div>
         </div>
       )}

@@ -1,8 +1,9 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Suspense } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import { Loader } from '../Loader/Loader';
 import css from './SharedLayout.module.css';
 
-export const SharedLayout = ({ children }) => {
+export const SharedLayout = () => {
   return (
     <div>
       <header className={css.headerBtns}>
@@ -23,7 +24,9 @@ export const SharedLayout = ({ children }) => {
           Movies
         </NavLink>
       </header>
-      <main>{children}</main>
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

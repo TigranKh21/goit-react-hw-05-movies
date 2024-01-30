@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getMovieCredits } from 'services/api';
+import { useParams } from 'react-router-dom';
 
 import { Loader } from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 
 import css from '../components/MovieDetails/MovieDetails.module.css';
 
-const Cast = ({ id }) => {
+const Cast = () => {
+  const { movieId } = useParams();
   const [actors, setActors] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchingActors = async () => {
-    if (actors) {
-      return;
-    }
-    try {
-      const data = await getMovieCredits(id);
-      setActors(data);
-    } catch (error) {
-      toast(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  fetchingActors();
+  useEffect(() => {
+    const fetchingActors = async () => {
+      if (actors) {
+        return;
+      }
+      try {
+        const data = await getMovieCredits(movieId);
+        setActors(data);
+      } catch (error) {
+        toast(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchingActors();
+  }, [movieId, actors]);
+
   return (
     isLoading && <Loader />,
     actors && (

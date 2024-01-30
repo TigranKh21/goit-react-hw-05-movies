@@ -1,8 +1,14 @@
-import React from 'react';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
-import css from '../components/Movie/MoviePage.module.css';
+import css from './SearchMovie.module.css';
 
-const SearchPage = ({ handleSubmit }) => {
+const SearchMovie = ({ setSearchParams }) => {
+  const handleSubmit = e => {
+    e.preventDefault();
+    const formData = e.currentTarget.elements.search.value;
+    setSearchParams({ query: formData });
+    e.target.reset();
+  };
+
   return (
     <section className={css.searchSection}>
       {
@@ -27,4 +33,4 @@ const SearchPage = ({ handleSubmit }) => {
   );
 };
 
-export default SearchPage;
+export default SearchMovie;

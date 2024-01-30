@@ -1,12 +1,14 @@
-import React from 'react';
 import { useEffect, useState } from 'react';
-import { TrendMovieList } from '../components/HomePage/TrendMovieList';
-import { getRatedMovies } from '../services/api';
-import css from '../components/HomePage/TrendingMovies.module.css';
+
 import { Loader } from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 
-const HomePage = () => {
+import { TrendMovieList } from '../components/MoviesList/MoviesList';
+import { getRatedMovies } from '../services/api';
+
+import css from '../components/MoviesList/MoviesList.module.css';
+
+export const HomePage = () => {
   const [rated, setRated] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,14 +27,14 @@ const HomePage = () => {
   }, []);
 
   return (
-    <section>
-      {isLoading && <Loader />}
-      <div className={css.homePage}>
-        <h2>Trending today</h2>
-        <ul>{rated && <TrendMovieList moviesList={rated} />}</ul>
-      </div>
-    </section>
+    <div>
+      <section>
+        {isLoading && <Loader />}
+        <div className={css.homePage}>
+          <h2>Trending today</h2>
+        </div>
+      </section>
+      {rated && <TrendMovieList moviesList={rated} />}
+    </div>
   );
 };
-
-export default HomePage;

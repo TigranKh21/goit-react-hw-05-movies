@@ -52,7 +52,11 @@ const MovieDetails = () => {
         <div>
           <section className={css.movieIdWrapper}>
             <img
-              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movieDetails.poster_path}`}
+              src={
+                `${movieDetails.poster_path}`
+                  ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movieDetails.poster_path}`
+                  : '../img/NO_IMAGE.png'
+              }
               alt={movieDetails.title}
               className={css.movieLargeImg}
             />

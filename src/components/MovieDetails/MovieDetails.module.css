@@ -132,6 +132,8 @@
 
 img {
   background-image: url('../../img/NO_IMAGE.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   align-items: start;
   border-radius: 10px 10px 0px 0px;
   max-width: 100%;

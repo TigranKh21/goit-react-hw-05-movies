@@ -37,7 +37,11 @@ const Cast = () => {
           {actors.cast.map(actor => (
             <li key={actor.id} className={`${css.addInfoItemCast} ${css.cast}`}>
               <img
-                src={`https://www.themoviedb.org/t/p/w138_and_h175_bestv2${actor.profile_path}`}
+                src={
+                  `${actor.profile_path}`
+                    ? `https://www.themoviedb.org/t/p/w138_and_h175_bestv2${actor.profile_path}`
+                    : '../img/NO_IMAGE.png'
+                }
                 alt={actor.name}
                 onError={e => {
                   e.target.alt = '';
